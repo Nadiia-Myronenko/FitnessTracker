@@ -6,17 +6,24 @@
     <title>FitnessTracker</title>
 </head>
 <body>
-     <h1>Fitness Tracker</h1>
+    <header>
+        <a href = "/" aria-label="FitnessTracker">
+            <img src="images/logo.png" alt="FitnessTracker">
+        </a>
+        <h1>Fitness Tracker</h1>
+    </header>
+    <main>
+        <section id="profil">
+            <h2>Profil</h2>
+            <label>Gewicht (kg): <input type="number" id="gewicht"></label>
+            <label>Größe (cm): <input type="number" id="groesse"></label>
+            <label>Alter: <input type="number" id="alter"></label>
+            <button id="berechne">BMI berechnen</button>
 
-  <section id="profil">
-    <h2>Profil</h2>
-    <label>Gewicht (kg): <input type="number" id="gewicht"></label>
-    <label>Größe (cm): <input type="number" id="groesse"></label>
-    <label>Alter: <input type="number" id="alter"></label>
-    <button id="berechne">BMI berechnen</button>
-
-    <p id="ergebnis"></p>
-  </section>
+            <p id="ergebnis"></p>
+        </section>
+  </main>
+  <footer></footer>
   <script src="script.js"></script>
 </body>
 </html>
