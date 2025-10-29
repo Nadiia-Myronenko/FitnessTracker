@@ -20,8 +20,8 @@ document.getElementById("berechne").addEventListener("click", function() {
         document.getElementById("ergebnis").textContent = `BMI: ${bmi} (${bewertung})`; 
 
         //Berechnung Idealgewicht
-        let idealgewichtMin = 18.5 * groesse * groesse;
-        let idealgewichtMax = 29.9 * groesse * groesse;
+        let idealgewichtMin = (18.5 * groesse * groesse).toFixed(1);
+        let idealgewichtMax = (24.9 * groesse * groesse).toFixed(1);
         document.getElementById("idealgewicht").textContent = `Idealgewicht: von ${idealgewichtMin} bis ${idealgewichtMax} kg`;
     } 
     else { alert("Bitte gültige Werte eingeben!"); } 
