@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <title>FitnessTracker</title>
-    
-</head>
-<body>
-    <header>
-        <a href = "/" aria-label="FitnessTracker">
-            <img src="images/logo.png" alt="FitnessTracker">
-        </a>
-        <h1 class="haupttitel">Fitness Tracker</h1>
-    </header>
-    <main>
-        <section id="profil">
-            <h2>Profil</h2>
-            <label>Gewicht (kg): <input type="number" id="gewicht"></label>
-            <label>Größe (cm): <input type="number" id="groesse"></label>
-            <label>Alter: <input type="number" id="alter"></label>
-            <button id="berechne">BMI berechnen</button>
 
-            <p id="ergebnis"></p>
-            <p id="idealgewicht"></p>
-        </section>
-  </main>
-  <footer></footer>
-  <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="hauptcontainer">
+        <header>
+            <a href="/" aria-label="FitnessTracker">
+                <img src="images/logo.png" alt="FitnessTracker" width="250" height="250">
+            </a>
+            <h1 class="haupttitel">Fitness Tracker</h1>
+        </header>
+        <main>
+            <section id="profil">
+                <h2>Profil</h2>
+                <form>
+                    <label class="label-block"><span class="label-text">Gewicht (kg):</span><input type="number"
+                            id="gewicht"></label>
+                    <label class="label-block"><span class="label-text">Größe (cm):</span><input type="number"
+                            id="groesse"></label>
+                    <label class="label-block"><span class="label-text">Alter:</span><input type="number"
+                            id="alter"></label>
+                    <button id="berechne">BMI berechnen</button>
+                </form>
+                <p id="ergebnis"></p>
+                <p id="idealgewicht"></p>
+            </section>
+        </main>
+        <footer></footer>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
