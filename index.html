@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
     <title>FitnessTracker</title>
 
 </head>
@@ -13,13 +13,21 @@
 <body>
     <div class="hauptcontainer">
         <header>
-            <a href="/" aria-label="FitnessTracker">
-                <img src="images/logo.png" alt="FitnessTracker" width="250" height="250">
+            <a class = "logo" href="/" aria-label="FitnessTracker">
+                <img src="images/logo.png" alt="FitnessTracker" width="150" height="150">
             </a>
             <h1 class="haupttitel">Fitness Tracker</h1>
+            <nav class="hauptnav">
+                <ul class="haupt-menu">
+                    <li><a href="#zitat-section">Das motiviert</a></li>
+                    <li><a href="#zitat-section">Dein Profil und BMI - Berechnung</a></li>
+                    <li><a href="#zitat-section">Deine Aktivitäten</a></li>
+                </ul>    
+            </nav>
         </header>
         <main>
-            <section class="zitat-section">
+            <section id="zitat-section" class="zitat-section">
+                <h2>Das motiviert</h2>
                 <div class="zitat-block">
                     <div class="zitat-inner-block">
                         <blockquote id="zitat" class="zitat">Zitat wird geladen...</blockquote>
@@ -41,6 +49,29 @@
                 </form>
                 <p id="ergebnis"></p>
                 <p id="idealgewicht"></p>
+            </section>
+            <section id="aktivitaeten">
+                <h2>Aktivitäten</h2>
+                <div class="aktivitaeten-block">
+                    <div>
+                        <select id="aktivitaet">
+                            <option>Gehen</option>
+                            <option>Workout</option>
+                            <option>Radfahren</option>
+                            <option>Laufen</option>
+                            <option>Yoga</option>
+                            <option>Schwimmen</option>
+                            <option>Wandern</option>
+                            <option>Boxen</option>
+                            <option>Pilates</option>
+                            <option>Fußball</option>
+                        </select>
+                        <input type="number" id="dauer" placeholder="Dauer in Minuten">
+                    </div>
+                    <button id="hinzufuegen">Aktivität speichern</button>
+
+                    <ul id="liste" class="aktivitaeten-liste"></ul>
+                </div>
             </section>
         </main>
         <footer></footer>

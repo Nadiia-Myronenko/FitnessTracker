@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     // ------------------ Zitate ------------------
     let zitate = [];
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("NeuesZitat").addEventListener("click", zeigeZufallsZitat);
 
     // ------------------ BMI ------------------
-    document.getElementById("berechne").addEventListener("click", function(event) {
+    document.getElementById("berechne").addEventListener("click", function (event) {
         event.preventDefault(); // Verhindert das Standard-Formular-Submit
 
         const gewicht = parseFloat(document.getElementById("gewicht").value);
@@ -59,5 +59,41 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Bitte gültige Werte eingeben!");
         }
     });
+    // ------------------ Zitate ------------------
+    function aktualisiereListe() {
+        const liste = document.getElementById("liste");
+        if (!liste) return; // falls das Element noch nicht existiert
 
+        liste.innerHTML = "";
+
+        aktivitaeten.forEach((eintrag, index) => {
+            const li = document.createElement("li");
+            li.textContent = `${eintrag.datum}: ${eintrag.name || eintrag.aktivitaet} – ${eintrag.dauer} Min.`;
+
+            // kleines Lösch-Button (optional, nützlich)
+            const loeschBtn = document.createElement("button");
+            loeschBtn.type = "button";
+            loeschBtn.textContent = "✖";
+            loeschBtn.classList.add("loesch-btn");
+            loeschBtn.addEventListener("click", () => {
+                aktivitaeten.splice(index, 1);
+                aktualisiereListe();
+            });
+
+            li.appendChild(loeschBtn);
+            liste.appendChild(li);
+        });
+    }
+    const aktivitaeten = [];
+
+    document.getElementById("hinzufuegen").addEventListener("click", function () {
+        const name = document.getElementById("aktivitaet").value;
+        const dauer = parseInt(document.getElementById("dauer").value);
+        if (!dauer || dauer <= 0) {
+            alert("Bitte gültige Dauer eingeben!");
+            return;
+        }
+        aktivitaeten.push({ name, dauer, datum: new Date().toLocaleDateString() });
+        aktualisiereListe();
+    });
 });

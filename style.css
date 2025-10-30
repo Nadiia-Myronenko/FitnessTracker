@@ -1,5 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
+    font-size: 14px;
     background: #f5f7fa;
     color: #333;
     max-width: 600px;
@@ -7,10 +12,43 @@ body {
     padding: 20px;
 }
 
+h2 {
+    margin: 0 0 20px 15px;
+}
+
 header {
     background: white;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 15px;
+}
+.logo{
+    margin-bottom: 15px;
+} 
+
+.haupt-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+.haupt-menu li {
+    color: #000;
+    border-right: 3px solid #fff;
+}
+
+.haupt-menu li:last-child {
+    border-right: none;
+}
+
+.haupt-menu li a {
+    display: block;
+    padding: 5px 10px;
+    color: #000;
+    text-decoration: none;
+
 }
 
 .haupttitel {
@@ -32,28 +70,42 @@ header {
     padding: 15px;
     margin-bottom: 20px;
 }
-section{
-    padding: 15px;
+
+section,
+header {
+    padding: 10px 15px 20px 15px;
 }
-.zitat-block{
+
+.hauptnav {
+    width: 100%;
+
+}
+
+.zitat-block,
+.aktivitaeten-block {
     background-color: #D9EEE1;
     padding: 20px;
     border-radius: 6px;
 }
-.zitat-inner-block{
-    height:150px;
+
+.zitat-inner-block {
+    height: 150px;
 }
-.zitat{
+
+.zitat {
     font-weight: 300;
     font-style: italic;
     margin: 0;
 }
+
 .zitat::before,
-.zitat::after{
-content: '"';
+.zitat::after {
+    content: '"';
 }
-form{
-    background:#E7E9EB;
+
+form,
+.hauptnav {
+    background: #E7E9EB;
     padding: 20px;
     border-radius: 6px;
 }
@@ -75,9 +127,26 @@ button {
     padding: 8px 12px;
     border-radius: 6px;
     cursor: pointer;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 button:hover {
     background: #248132;
+}
+
+.aktivitaeten-liste {
+    list-style: none;
+    padding: 0;
+}
+
+.loesch-btn {
+    background-color: transparent;
+    color: red;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.loesch-btn:hover {
+    background-color: transparent;
+    cursor: pointer;
 }
