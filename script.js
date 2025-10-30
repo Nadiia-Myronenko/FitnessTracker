@@ -20,7 +20,7 @@ fetch("zitate.json")
     return response.json();
     })
     .then(data => {
-    zitate = data.zitate;
+    zitate = zitate[0].zitat;
     zeigeZufallsZitat(); // erstes Zitat beim Start anzeigen
     })
     .catch(error => {
