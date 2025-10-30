@@ -1,3 +1,37 @@
+//Zitate
+
+let zitate = [];
+
+// Funktion: zufälliges Zitat anzeigen
+function zeigeZufallsZitat() {
+    if (zitate.length === 0) return;
+    const zufallsIndex = Math.floor(Math.random() * zitate.length);
+    const zufallsZitat = zitate[zufallsIndex];
+    document.getElementById("zitat").textContent = zufallsZitat.zitat;
+    document.getElementById("autor").textContent = "– " + zufallsZitat.autor;
+}
+
+// JSON-Datei laden
+fetch("zitate.json")
+    .then(response => {
+    if (!response.ok) {
+        throw new Error("Fehler beim Laden der JSON-Datei");
+    }
+    return response.json();
+    })
+    .then(data => {
+    zitate = data.zitate;
+    zeigeZufallsZitat(); // erstes Zitat beim Start anzeigen
+    })
+    .catch(error => {
+    document.getElementById("zitat").textContent = "Fehler: " + error.message;
+    });
+
+// Klick-Event für den Button
+document.getElementById("neuesZitat").addEventListener("click", zeigeZufallsZitat);
+
+
+//BMI
 document.getElementById("berechne").addEventListener("click", function() { 
     const gewicht = parseFloat(document.getElementById("gewicht").value);
     const groesse = parseFloat(document.getElementById("groesse").value) / 100; // in m
