@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const zufallsIndex = Math.floor(Math.random() * zitate.length);
         const zufallsZitat = zitate[zufallsIndex];
         document.getElementById("zitat").textContent = zufallsZitat.zitat;
-        document.getElementById("author").textContent = "– " + zufallsZitat.autor;
+        document.getElementById("author").textContent = "(" + zufallsZitat.autor + ")";
     }
 
     // JSON-Datei laden

@@ -9,6 +9,8 @@ body {
 
 header {
     background: white;
+    display: flex;
+    justify-content: center;
 }
 
 .haupttitel {
@@ -30,7 +32,26 @@ header {
     padding: 15px;
     margin-bottom: 20px;
 }
-
+section{
+    padding: 15px;
+}
+.zitat-block{
+    background-color: #D9EEE1;
+    padding: 20px;
+    border-radius: 6px;
+}
+.zitat-inner-block{
+    height:150px;
+}
+.zitat{
+    font-weight: 300;
+    font-style: italic;
+    margin: 0;
+}
+.zitat::before,
+.zitat::after{
+content: '"';
+}
 form{
     background:#E7E9EB;
     padding: 20px;
