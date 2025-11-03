@@ -59,10 +59,70 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Bitte gültige Werte eingeben!");
         }
     });
+    // -------------- Gewichtsstat speichern ------------
+    let gewichtsdaten = JSON.parse(localStorage.getItem("gewichtsdaten") || "[]");
+
+    function speichereGewicht() {
+        localStorage.setItem("gewichtsdaten", JSON.stringify(gewichtsdaten));
+    }
+
+    function aktualisiereGewichtListe() {
+        const liste = document.getElementById("gewichtListe");
+        liste.innerHTML = "";
+
+        gewichtsdaten.forEach((eintrag, index) => {
+            const li = document.createElement("li");
+            li.textContent = `${eintrag.datum}: ${eintrag.gewicht} kg`;
+
+            const loeschBtn = document.createElement("button");
+            loeschBtn.textContent = "X";
+            loeschBtn.classList.add("loesch-btn");
+            loeschBtn.addEventListener("click", () => {
+                gewichtsdaten.splice(index, 1);
+                speichereGewicht();
+                aktualisiereGewichtListe();
+            });
+
+            li.appendChild(loeschBtn);
+            liste.appendChild(li);
+        });
+    }
+
+    document.getElementById("gewichtHinzufuegen").addEventListener("click", () => {
+        const gewicht = parseFloat(document.getElementById("gewicht").value);
+
+        if (!gewicht || gewicht <= 0) {
+            alert("Bitte gültiges Gewicht eingeben!");
+            return;
+        }
+
+        gewichtsdaten.push({
+            gewicht,
+            datum: new Date().toLocaleDateString()
+        });
+
+        speichereGewicht();
+        aktualisiereGewichtListe();
+
+        document.getElementById("gewicht").value = "";
+    });
+
+    aktualisiereGewichtListe();
     // ------------------ Zitate ------------------
+    let aktivitaeten = [];
+
+    //  Daten aus localStorage laden
+    if (localStorage.getItem("aktivitaeten")) {
+        aktivitaeten = JSON.parse(localStorage.getItem("aktivitaeten"));
+    }
+
+    function speichereDaten() {
+        localStorage.setItem("aktivitaeten", JSON.stringify(aktivitaeten));
+    }
+
     function aktualisiereListe() {
-        const liste = document.getElementById("liste");
-        if (!liste) return; // falls das Element noch nicht existiert
+        const liste = document.getElementById("aktivitaetenListe");
+        if (!liste) return;
 
         liste.innerHTML = "";
 
@@ -70,13 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const li = document.createElement("li");
             li.textContent = `${eintrag.datum}: ${eintrag.name || eintrag.aktivitaet} – ${eintrag.dauer} Min.`;
 
-            // kleines Lösch-Button (optional, nützlich)
             const loeschBtn = document.createElement("button");
             loeschBtn.type = "button";
-            loeschBtn.textContent = "✖";
+            loeschBtn.textContent = "X";
             loeschBtn.classList.add("loesch-btn");
             loeschBtn.addEventListener("click", () => {
                 aktivitaeten.splice(index, 1);
+                speichereDaten(); // nach Löschen speichern
                 aktualisiereListe();
             });
 
@@ -84,16 +144,28 @@ document.addEventListener("DOMContentLoaded", function () {
             liste.appendChild(li);
         });
     }
-    const aktivitaeten = [];
 
     document.getElementById("hinzufuegen").addEventListener("click", function () {
-        const name = document.getElementById("aktivitaet").value;
+        const name = document.getElementById("aktivitaet").value.trim();
         const dauer = parseInt(document.getElementById("dauer").value);
+        if (!name) {
+            alert("Bitte eine Aktivität eingeben!");
+            return;
+        }
         if (!dauer || dauer <= 0) {
             alert("Bitte gültige Dauer eingeben!");
             return;
         }
+
         aktivitaeten.push({ name, dauer, datum: new Date().toLocaleDateString() });
+        speichereDaten(); // nach Hinzufügen speichern
         aktualisiereListe();
+
+        // Eingabefelder zurücksetzen
+        document.getElementById("aktivitaet").value = "";
+        document.getElementById("dauer").value = "";
     });
+
+    // Liste beim Laden der Seite anzeigen
+    aktualisiereListe();
 });

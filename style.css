@@ -48,7 +48,7 @@ header {
     padding: 5px 10px;
     color: #000;
     text-decoration: none;
-
+    text-align: center;
 }
 
 .haupttitel {
@@ -102,8 +102,7 @@ header {
 .zitat::after {
     content: '"';
 }
-
-form,
+.profil-block,
 .hauptnav {
     background: #E7E9EB;
     padding: 20px;
@@ -134,7 +133,7 @@ button:hover {
     background: #248132;
 }
 
-.aktivitaeten-liste {
+.liste {
     list-style: none;
     padding: 0;
 }
@@ -149,4 +148,7 @@ button:hover {
 .loesch-btn:hover {
     background-color: transparent;
     cursor: pointer;
+}
+.aktivitaeten-wahl{
+    width: 173px;
 }

@@ -13,16 +13,16 @@
 <body>
     <div class="hauptcontainer">
         <header>
-            <a class = "logo" href="/" aria-label="FitnessTracker">
+            <a class="logo" href="/" aria-label="FitnessTracker">
                 <img src="images/logo.png" alt="FitnessTracker" width="150" height="150">
             </a>
             <h1 class="haupttitel">Fitness Tracker</h1>
             <nav class="hauptnav">
                 <ul class="haupt-menu">
                     <li><a href="#zitat-section">Das motiviert</a></li>
-                    <li><a href="#zitat-section">Dein Profil und BMI - Berechnung</a></li>
-                    <li><a href="#zitat-section">Deine Aktivitäten</a></li>
-                </ul>    
+                    <li><a href="#profil">Dein Profil und BMI - Berechnung</a></li>
+                    <li><a href="#aktivitaeten">Deine Aktivitäten</a></li>
+                </ul>
             </nav>
         </header>
         <main>
@@ -38,7 +38,7 @@
             </section>
             <section id="profil">
                 <h2>Profil</h2>
-                <form>
+                <div class="profil-block">
                     <label class="label-block"><span class="label-text">Gewicht (kg):</span><input type="number"
                             id="gewicht"></label>
                     <label class="label-block"><span class="label-text">Größe (cm):</span><input type="number"
@@ -46,7 +46,9 @@
                     <label class="label-block"><span class="label-text">Alter:</span><input type="number"
                             id="alter"></label>
                     <button id="berechne">BMI berechnen</button>
-                </form>
+                    <button id="gewichtHinzufuegen">Gewicht speichern</button>
+                    <ul id="gewichtListe" class="liste"></ul>
+                </div>
                 <p id="ergebnis"></p>
                 <p id="idealgewicht"></p>
             </section>
@@ -54,29 +56,31 @@
                 <h2>Aktivitäten</h2>
                 <div class="aktivitaeten-block">
                     <div>
-                        <select id="aktivitaet">
-                            <option>Gehen</option>
-                            <option>Workout</option>
-                            <option>Radfahren</option>
-                            <option>Laufen</option>
-                            <option>Yoga</option>
-                            <option>Schwimmen</option>
-                            <option>Wandern</option>
-                            <option>Boxen</option>
-                            <option>Pilates</option>
-                            <option>Fußball</option>
-                        </select>
-                        <input type="number" id="dauer" placeholder="Dauer in Minuten">
+                        <label class="label-block"><span class="label-text">Aktivität:</span>
+                            <select id="aktivitaet" class="aktivitaeten-wahl">
+                                <option>Gehen</option>
+                                <option>Workout</option>
+                                <option>Radfahren</option>
+                                <option>Laufen</option>
+                                <option>Yoga</option>
+                                <option>Schwimmen</option>
+                                <option>Wandern</option>
+                                <option>Boxen</option>
+                                <option>Pilates</option>
+                                <option>Fußball</option>
+                            </select></label>
+                        <label class="label-block"><span class="label-text">Dauer in Min:</span><input type="number" id="dauer" placeholder="Dauer in Minuten">
+                        </label>
                     </div>
                     <button id="hinzufuegen">Aktivität speichern</button>
 
-                    <ul id="liste" class="aktivitaeten-liste"></ul>
+                    <ul id="aktivitaetenListe" class="liste"></ul>
                 </div>
             </section>
         </main>
         <footer></footer>
     </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
