@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const idealgewichtMax = (24.9 * groesse * groesse).toFixed(1);
             document.getElementById("idealgewicht").textContent = `Idealgewicht: von ${idealgewichtMin} bis ${idealgewichtMax} kg`;
         } else {
-            alert("Bitte gültige Werte eingeben!");
+            alert("Bitte gültige Werte eingeben! Sie müssen größer als 0 sein!");
         }
         } else {alert("Dieser BMI-Rechner ist für Erwachsene ab 18 Jahren geeignet.");}
     });
