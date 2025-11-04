@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // ------------------ BMI ------------------
     document.getElementById("berechne").addEventListener("click", function (event) {
         event.preventDefault(); // Verhindert das Standard-Formular-Submit
-
+        const alter = parseFloat(document.getElementById("alter").value);
+        if (alter >= 18){
         const gewicht = parseFloat(document.getElementById("gewicht").value);
         const groesse = parseFloat(document.getElementById("groesse").value) / 100; // in m
 
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             alert("Bitte gültige Werte eingeben!");
         }
+        } else {alert("Dieser BMI-Rechner ist für Erwachsene ab 18 Jahren geeignet.");}
     });
     // -------------- Gewichtsstat speichern ------------
     let gewichtsdaten = JSON.parse(localStorage.getItem("gewichtsdaten") || "[]");
@@ -227,3 +229,25 @@ document
     // Liste beim Laden der Seite anzeigen
     aktualisiereListe();
 });
+
+//---------------Scroll nach oben Button ------------
+
+// Get the button:
+let mybutton = document.getElementById("scrollTopButton");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
