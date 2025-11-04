@@ -47,10 +47,14 @@
                             id="alter"></label>
                     <button id="berechne">BMI berechnen</button>
                     <button id="gewichtHinzufuegen">Gewicht speichern</button>
+
                     <ul id="gewichtListe" class="liste"></ul>
+
+                    <p id="ergebnis"></p>
+                    <p id="idealgewicht"></p>
+                    <canvas id="gewichtChart" width="400" height="200"></canvas>
+                    <button id="gewichtsHistory">Diagramm aktualisieren</button>
                 </div>
-                <p id="ergebnis"></p>
-                <p id="idealgewicht"></p>
             </section>
             <section id="aktivitaeten">
                 <h2>Aktivitäten</h2>
@@ -69,17 +73,20 @@
                                 <option>Pilates</option>
                                 <option>Fußball</option>
                             </select></label>
-                        <label class="label-block"><span class="label-text">Dauer in Min:</span><input type="number" id="dauer" placeholder="Dauer in Minuten">
+                        <label class="label-block"><span class="label-text">Dauer in Min:</span><input type="number"
+                                id="dauer" placeholder="Dauer in Minuten">
                         </label>
                     </div>
                     <button id="hinzufuegen">Aktivität speichern</button>
 
                     <ul id="aktivitaetenListe" class="liste"></ul>
+
                 </div>
             </section>
         </main>
         <footer></footer>
     </div>
+    <script src="js/chart.umd.js"></script>
     <script src="js/script.js"></script>
 </body>
 

@@ -108,7 +108,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     aktualisiereGewichtListe();
-    // ------------------ Zitate ------------------
+
+    // ------------------ Diagramm: Gewicht über Zeit ------------------
+let chart;
+function aktualisiereDiagram() {
+    const xValues = gewichtsdaten.map(e => e.datum);
+    const yValues = gewichtsdaten.map(e => e.gewicht);
+
+    const ctx = document.getElementById('gewichtChart');
+
+    if (chart) chart.destroy(); // <--- HIER wird zerstört
+
+    chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                label: "Gewicht (kg)",
+                backgroundColor: "orange",
+                data: yValues
+            }]
+        },
+        options: {
+            plugins: {
+                title: { display: true, text: "Gewichtsverlauf" }
+            }
+        }
+    });
+}
+
+aktualisiereDiagram();
+
+document
+  .getElementById("gewichtsHistory")
+  .addEventListener("click", aktualisiereDiagram);
+
+    // ------------------ Aktivitaeten  ------------------
     let aktivitaeten = [];
 
     //  Daten aus localStorage laden
