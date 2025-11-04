@@ -138,6 +138,13 @@ button:hover {
     padding: 0;
 }
 
+.bmi-block{
+    background-color: white;
+    width: 50%;
+    padding: 10px 5px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
 .loesch-btn {
     background-color: transparent;
     color: red;

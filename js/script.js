@@ -117,34 +117,46 @@ function aktualisiereDiagram() {
 
     const ctx = document.getElementById('gewichtChart');
 
-    if (chart) chart.destroy(); // <--- HIER wird zerstört
+    if (chart) chart.destroy();
 
     chart = new Chart(ctx, {
         type: "bar",
         data: {
             labels: xValues,
             datasets: [{
-                label: "Gewicht (kg)",
-                backgroundColor: "orange",
+                label: "", // 🔸 Kein Label -> keine "undefined"-Anzeige
+                backgroundColor: "#ffcc99",
                 data: yValues
             }]
         },
         options: {
-  scales: {
-    y: {
-      beginAtZero: false,
-      min: Math.min(...yValues) - 0.5,
-      max: Math.max(...yValues) + 0.5,
-      title: {
-        display: true,
-        text: "Gewicht (kg)"
-      }
-    },
-    x: {
-      title: { display: true, text: "Datum" }
-    }
-  }
-}
+            plugins: {
+                legend: { display: false }, // 🔸 Hier gehört es hin
+                title: {
+                    display: true,
+                    text: "Gewichtsverlauf"
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: Math.min(...yValues) - 0.5,
+                    max: Math.max(...yValues) + 0.5,
+                    title: {
+                        display: true,
+                        text: "Gewicht (kg)",
+                        font: { weight: 'bold', size: 14 }
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: "Datum",
+                        font: { weight: 'bold', size: 14 }
+                    }
+                }
+            }
+        }
     });
 }
 
