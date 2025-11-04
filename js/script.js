@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 gewichtsdaten.splice(index, 1);
                 speichereGewicht();
                 aktualisiereGewichtListe();
+                aktualisiereDiagram();
             });
 
             li.appendChild(loeschBtn);
@@ -105,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         speichereGewicht();
         aktualisiereGewichtListe();
+        aktualisiereDiagram();
+
 
         document.getElementById("gewicht").value = "";
     });
@@ -126,7 +129,7 @@ function aktualisiereDiagram() {
         data: {
             labels: xValues,
             datasets: [{
-                label: "", // 🔸 Kein Label -> keine "undefined"-Anzeige
+                label: "", // Kein Label -> keine "undefined"-Anzeige
                 backgroundColor: "#ffcc99",
                 data: yValues
             }]
@@ -164,9 +167,7 @@ function aktualisiereDiagram() {
 
 aktualisiereDiagram();
 
-document
-  .getElementById("gewichtsHistory")
-  .addEventListener("click", aktualisiereDiagram);
+
 
     // ------------------ Aktivitaeten  ------------------
     let aktivitaeten = [];
