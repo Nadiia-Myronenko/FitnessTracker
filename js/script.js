@@ -130,10 +130,21 @@ function aktualisiereDiagram() {
             }]
         },
         options: {
-            plugins: {
-                title: { display: true, text: "Gewichtsverlauf" }
-            }
-        }
+  scales: {
+    y: {
+      beginAtZero: false,
+      min: Math.min(...yValues) - 0.5,
+      max: Math.max(...yValues) + 0.5,
+      title: {
+        display: true,
+        text: "Gewicht (kg)"
+      }
+    },
+    x: {
+      title: { display: true, text: "Datum" }
+    }
+  }
+}
     });
 }
 
