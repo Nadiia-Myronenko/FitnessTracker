@@ -26,6 +26,7 @@
             </nav>
         </header>
         <main>
+            <!------------------Zitat Section------------->
             <section id="zitat-section" class="zitat-section">
                 <h2>Das motiviert</h2>
                 <div class="zitat-block">
@@ -36,6 +37,7 @@
                     <button id="NeuesZitat">Neues Zitat</button>
                 </div>
             </section>
+            <!-----------------------Profil----------------->
             <section id="profil">
                 <h2>Profil</h2>
                 <div class="profil-block">
@@ -48,8 +50,9 @@
                     <button id="berechne">BMI berechnen</button>
                     <button id="gewichtHinzufuegen">Gewicht speichern</button>
                     <div class="bmi-block">
-                        <p id="ergebnis">Dieser <strong>BMI-Rechner</strong> ist für Erwachsene <strong>ab 18 Jahren</strong> geeignet. Um ihn  zu berechnen und
-                             eine Bewertung zu erhalten, geben Sie Ihre Daten in die oben stehenden Felder ein und
+                        <p id="ergebnis">Dieser <strong>BMI-Rechner</strong> ist für Erwachsene <strong>ab 18
+                                Jahren</strong> geeignet. Um ihn zu berechnen und
+                            eine Bewertung zu erhalten, geben Sie Ihre Daten in die oben stehenden Felder ein und
                             klicken Sie auf die Schaltfläche <strong>"BMI berechnen"</strong>.</p>
                         <p id="idealgewicht"></p>
                     </div>
@@ -58,6 +61,7 @@
                     <canvas id="gewichtChart" width="400" height="200"></canvas>
                 </div>
             </section>
+            <!----------Aktivitäten------------------------------>
             <section id="aktivitaeten">
                 <h2>Aktivitäten</h2>
                 <div class="aktivitaeten-block">
@@ -77,9 +81,10 @@
                             </select></label>
 
                         <div class="label-block"><label class="label-text" for="neueAktivitaet">Neue Aktivität:</label>
-                        <input type="text" id="neueAktivitaet" placeholder="Neue Aktivität eingeben">
-                        <button onclick="hinzufuegen()" class="hinzufügen-button">➕</button>
-                        <i class="hinweis">(Wenn Sie die Aktivität nicht in der Liste gefunden haben)</i></div>    
+                            <input type="text" id="neueAktivitaet" placeholder="Neue Aktivität eingeben">
+                            <button onclick="hinzufuegen()" class="hinzufügen-button">➕</button>
+                            <i class="hinweis">(Wenn Sie die Aktivität nicht in der Liste gefunden haben)</i>
+                        </div>
                         <label class="label-block"><span class="label-text">Dauer in Min:</span><input type="number"
                                 id="dauer" placeholder="Dauer in Minuten">
                         </label>
@@ -88,8 +93,11 @@
 
                     <ul id="aktivitaetenListe" class="liste"></ul>
 
+                    <canvas id="aktivitaetenChart" width="400" height="200"></canvas>
+
                 </div>
             </section>
+            <!----------------------Go to Top Button--------------------------->
             <button onclick="topFunction()" id="scrollTopButton" title="Go to top">⮝</button>
         </main>
         <footer></footer>

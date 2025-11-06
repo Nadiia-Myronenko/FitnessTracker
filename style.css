@@ -23,6 +23,8 @@ header {
     flex-direction: column;
     padding: 0 15px;
 }
+
+/* Header */
 .logo{
     margin-bottom: 15px;
 } 
@@ -80,9 +82,9 @@ header {
 
 .hauptnav {
     width: 100%;
-
 }
 
+/* Zitaten block*/
 .zitat-block,
 .aktivitaeten-block {
     background-color: #D9EEE1;
@@ -104,6 +106,8 @@ header {
 .zitat::after {
     content: '"';
 }
+
+/* für Profil und Aktivitäten */
 .profil-block,
 .hauptnav {
     background: #E7E9EB;
@@ -165,6 +169,8 @@ canvas{
     padding: 15px;
     margin-bottom: 20px;
 }
+
+/* für Aktivitäten Block */
 .aktivitaeten-wahl{
     width: 173px;
 }
@@ -177,20 +183,21 @@ canvas{
     cursor:pointer;
     background: transparent;
 }
+
+/* Scroll nach Oben Schaltfläche */
 #scrollTopButton {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background: rgba(255, 0, 0, 0.5); /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 12px 15px; /* Some padding */
-  border-radius: 50%; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  display: none; /* erscheint mit JS*/
+  position: fixed;
+  bottom: 20px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background: rgba(255, 0, 0, 0.5); 
+  color: white; 
+  cursor: pointer; 
+  padding: 12px 15px; 
+  border-radius: 50%; 
+  font-size: 18px; 
 }
 
 #scrollTopButton:hover {
