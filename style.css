@@ -169,6 +169,14 @@ canvas{
     width: 173px;
 }
 
+.hinzufügen-button{
+    background-color: transparent;
+
+}
+.hinzufügen-button:hover{
+    cursor:pointer;
+    background: transparent;
+}
 #scrollTopButton {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */

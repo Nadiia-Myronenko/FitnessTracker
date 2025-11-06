@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         } else {alert("Dieser BMI-Rechner ist für Erwachsene ab 18 Jahren geeignet.");}
     });
-    // -------------- Gewichtsstat speichern ------------
+    // -------------- Gewichtsstand speichern ------------
     let gewichtsdaten = JSON.parse(localStorage.getItem("gewichtsdaten") || "[]");
 
     function speichereGewicht() {
@@ -230,6 +230,33 @@ aktualisiereDiagram();
     // Liste beim Laden der Seite anzeigen
     aktualisiereListe();
 });
+//--------Neues Aktivität in der Liste beifügen---------------
+function hinzufuegen() {
+  const select = document.getElementById('aktivitaet');
+  const neue = document.getElementById('neueAktivitaet').value.trim();
+  if (neue !== "") {
+    const option = document.createElement("option");
+    option.text = neue;
+    select.add(option);
+    document.getElementById('neueAktivitaet').value = "";
+
+    // In localStorage speichern
+    let gespeicherte = JSON.parse(localStorage.getItem('aktivitaeten')) || [];
+    gespeicherte.push(neue);
+    localStorage.setItem('aktivitaeten', JSON.stringify(gespeicherte));
+  }
+}
+
+// Beim Laden gespeicherte Aktivitäten wieder einfügen
+window.onload = function() {
+  const gespeicherte = JSON.parse(localStorage.getItem('aktivitaeten')) || [];
+  const select = document.getElementById('aktivitaet');
+  gespeicherte.forEach(a => {
+    const option = document.createElement("option");
+    option.text = a;
+    select.add(option);
+  });
+};
 
 //---------------Scroll nach oben Button ------------
 
