@@ -200,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 aktivitaeten.splice(index, 1);
                 speichereDaten(); // nach Löschen speichern
                 aktualisiereListe();
+                aktualisiereDiagram();
             });
 
             li.appendChild(loeschBtn);
@@ -222,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
         aktivitaeten.push({ name, dauer, datum: new Date().toLocaleDateString() });
         speichereDaten(); // nach Hinzufügen speichern
         aktualisiereListe();
-
+        aktualisiereDiagram();
         // Eingabefelder zurücksetzen
         document.getElementById("aktivitaet").value = "";
         document.getElementById("dauer").value = "";

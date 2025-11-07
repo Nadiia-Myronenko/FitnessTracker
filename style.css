@@ -186,9 +186,10 @@ canvas{
 
 /* Scroll nach Oben Schaltfläche */
 #scrollTopButton {
-  display: none; /* erscheint mit JS*/
+  display: none; /* wird erscheint mit JS*/
   position: fixed;
   bottom: 20px; 
+  right:30px;
   z-index: 99; 
   border: none; 
   outline: none; 
